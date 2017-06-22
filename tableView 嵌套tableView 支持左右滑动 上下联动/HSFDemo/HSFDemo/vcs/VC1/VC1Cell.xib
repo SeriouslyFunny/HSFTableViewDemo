@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="248" id="KGk-i7-Jjw" customClass="VC1Cell">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="248"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="369" height="248"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dw2-OX-HAr">
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dw2-OX-HAr" secondAttribute="height" multiplier="1:1" id="RhX-ZI-wxV"/>
+                            <constraint firstAttribute="width" constant="80" id="dAM-Cu-ELz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jsdffoijfoijaoierfjwoafjowjerowqiejroiewjroqwenrwoinfio wevnjrofgjre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szX-5q-Sxt">
+                        <rect key="frame" x="100" y="10" width="259" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="szX-5q-Sxt" secondAttribute="trailing" constant="10" id="Uk5-bw-1Z7"/>
+                    <constraint firstItem="szX-5q-Sxt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Why-aw-jEk"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dw2-OX-HAr" secondAttribute="bottom" constant="10" id="qK1-aP-GRW"/>
+                    <constraint firstItem="dw2-OX-HAr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ucA-mE-tFa"/>
+                    <constraint firstItem="szX-5q-Sxt" firstAttribute="leading" secondItem="dw2-OX-HAr" secondAttribute="trailing" constant="10" id="vyx-WF-eU2"/>
+                    <constraint firstItem="dw2-OX-HAr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xpv-hQ-hWK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="szX-5q-Sxt" secondAttribute="bottom" constant="10" id="yTD-Ed-LL8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="title" destination="szX-5q-Sxt" id="RlQ-bw-ani"/>
+            </connections>
+            <point key="canvasLocation" x="58.5" y="156"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="headerIcon" width="425" height="300"/>
+    </resources>
+</document>
