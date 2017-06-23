@@ -2,7 +2,7 @@
 //  VC3.m
 //  HSFDemo
 //
-//  Created by JuZhenBaoiMac on 2017/6/22.
+//  Created by JuZhenBaoiMac on 2017/6/23.
 //  Copyright © 2017年 JuZhenBaoiMac. All rights reserved.
 //
 
@@ -10,24 +10,16 @@
 
 #import "VC3Cell.h"
 
-@interface VC3 ()<UITableViewDelegate,UITableViewDataSource>
-
-
+@interface VC3 ()
 
 @end
 
 @implementation VC3
 
-#pragma mark -viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //配置tableView
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 44;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([VC3Cell class]) bundle:nil] forCellReuseIdentifier:@"VC3Cell"];
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([VC3Cell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([VC3Cell class])];
 }
 
 #pragma mark -UITableViewDelegate,UITableViewDataSource
@@ -35,30 +27,13 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 30;
+    return 20;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    VC3Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"VC3Cell" forIndexPath:indexPath];
+    VC3Cell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VC3Cell class]) forIndexPath:indexPath];
     cell.title.text = [NSString stringWithFormat:@"TITLE(%ld)",(long)indexPath.row];
     return cell;
 }
-
-#pragma mark UIScrollView
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (scrollView == self.tableView) {
-        if (!self.vcCanScroll) {
-            scrollView.contentOffset = CGPointZero;
-        }
-        if (scrollView.contentOffset.y <= 0) {
-            self.vcCanScroll = NO;
-            scrollView.contentOffset = CGPointZero;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeVCScrollState" object:nil userInfo:nil];//到顶通知父视图改变状态
-        }
-        self.tableView.showsVerticalScrollIndicator = _vcCanScroll?YES:NO;
-    }
-}
-
 
 
 - (void)didReceiveMemoryWarning {

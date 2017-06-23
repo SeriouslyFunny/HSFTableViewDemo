@@ -2,7 +2,7 @@
 //  VC1.m
 //  HSFDemo
 //
-//  Created by JuZhenBaoiMac on 2017/6/22.
+//  Created by JuZhenBaoiMac on 2017/6/23.
 //  Copyright © 2017年 JuZhenBaoiMac. All rights reserved.
 //
 
@@ -10,24 +10,16 @@
 
 #import "VC1Cell.h"
 
-@interface VC1 ()<UITableViewDelegate,UITableViewDataSource>
-
-
+@interface VC1 ()
 
 @end
 
 @implementation VC1
 
-#pragma mark -viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //配置tableView
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 44;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([VC1Cell class]) bundle:nil] forCellReuseIdentifier:@"VC1Cell"];
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([VC1Cell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([VC1Cell class])];
 }
 
 #pragma mark -UITableViewDelegate,UITableViewDataSource
@@ -38,26 +30,9 @@
     return 10;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    VC1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"VC1Cell" forIndexPath:indexPath];
+    VC1Cell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VC1Cell class]) forIndexPath:indexPath];
     cell.title.text = [NSString stringWithFormat:@"TITLE(%ld)",(long)indexPath.row];
     return cell;
-}
-
-
-#pragma mark UIScrollView
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (scrollView == self.tableView) {
-        if (!self.vcCanScroll) {
-            scrollView.contentOffset = CGPointZero;
-        }
-        if (scrollView.contentOffset.y <= 0) {
-            self.vcCanScroll = NO;
-            scrollView.contentOffset = CGPointZero;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeVCScrollState" object:nil userInfo:nil];//到顶通知父视图改变状态
-        }
-        self.tableView.showsVerticalScrollIndicator = _vcCanScroll?YES:NO;
-    }
 }
 
 

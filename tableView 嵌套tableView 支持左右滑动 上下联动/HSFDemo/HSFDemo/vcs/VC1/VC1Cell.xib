@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dw2-OX-HAr">
-                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <rect key="frame" x="10" y="10" width="80" height="81"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="dw2-OX-HAr" secondAttribute="height" multiplier="1:1" id="RhX-ZI-wxV"/>
                             <constraint firstAttribute="width" constant="80" id="dAM-Cu-ELz"/>
@@ -32,15 +32,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhQ-wl-DNR">
+                        <rect key="frame" x="0.0" y="238" width="369" height="10"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="dTb-6Q-UwQ"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="zhQ-wl-DNR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="szX-5q-Sxt" secondAttribute="bottom" constant="10" id="01F-fy-8dP"/>
+                    <constraint firstAttribute="trailing" secondItem="zhQ-wl-DNR" secondAttribute="trailing" id="9Db-RI-Hx8"/>
+                    <constraint firstItem="zhQ-wl-DNR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HLV-XN-S43"/>
+                    <constraint firstItem="zhQ-wl-DNR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dw2-OX-HAr" secondAttribute="bottom" constant="10" id="Sk3-Gb-zOW"/>
                     <constraint firstAttribute="trailing" secondItem="szX-5q-Sxt" secondAttribute="trailing" constant="10" id="Uk5-bw-1Z7"/>
                     <constraint firstItem="szX-5q-Sxt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Why-aw-jEk"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dw2-OX-HAr" secondAttribute="bottom" constant="10" id="qK1-aP-GRW"/>
+                    <constraint firstAttribute="bottom" secondItem="zhQ-wl-DNR" secondAttribute="bottom" id="oic-bu-9rr"/>
                     <constraint firstItem="dw2-OX-HAr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ucA-mE-tFa"/>
                     <constraint firstItem="szX-5q-Sxt" firstAttribute="leading" secondItem="dw2-OX-HAr" secondAttribute="trailing" constant="10" id="vyx-WF-eU2"/>
                     <constraint firstItem="dw2-OX-HAr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xpv-hQ-hWK"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="szX-5q-Sxt" secondAttribute="bottom" constant="10" id="yTD-Ed-LL8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
